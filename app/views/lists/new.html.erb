@@ -1,0 +1,9 @@
+<div class="container">
+<h1 class="mt-5">Add a new list:</h1>
+<%= simple_form_for @list do |f| %>
+  <%= f.input :name %>
+  <%= f.button :submit, class: "btn btn-primary" %>
+<% end %>
+
+<div class="mt-3"><%= link_to "Back to lists", lists_path %></div>
+</div>

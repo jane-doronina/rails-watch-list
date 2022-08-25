@@ -1,0 +1,23 @@
+<div class="card-category" style='background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://i.ibb.co/DVrd40h/randy-rizo-vb-BJZzl3-Au-Q-unsplash.jpg)'>
+  <h1 class="mb-3"><%= @list.name %></h1>
+  <%= link_to "Add a movie", new_list_bookmark_path(@list), class: "btn-pink" %>
+</div>
+
+<div class="container mt-3 mb-5">
+  <div class="row">
+    <% @list.bookmarks.each do |bookmark| %>
+      <div class="col-sm-12 col-md-6 col-lg-4">
+
+        <div class="card-product">
+          <%= image_tag bookmark.movie.poster_url, alt: "Le Wagon" %>
+          <div class="card-product-infos">
+            <h2><%= bookmark.movie.title %></h2>
+            <p><%= bookmark.movie.overview %></p>
+            <%= link_to '<i class="fa-solid fa-trash-can"></i>'.html_safe, bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <%= link_to "Back to lists", lists_path, class: "btn btn-dark" %>
+</div>

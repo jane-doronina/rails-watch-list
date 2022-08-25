@@ -1,0 +1,17 @@
+<div class="banner">
+  <div class="container">
+    <h1>All your favourite movies in just one place</h1>
+  </div>
+</div>
+<div class="container mb-5">
+  <h2 class="mt-5 text-center">Discover your lists</h2>
+
+  <% @lists.each do |list| %>
+  <div class="card-category" style='background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://i.ibb.co/DVrd40h/randy-rizo-vb-BJZzl3-Au-Q-unsplash.jpg)'>
+    <h2><%= link_to list.name, list_path(list) %></h2>
+    <% end %>
+  </div>
+
+
+  <%= link_to "Create a new list", new_list_path, class: "btn-pink" %>
+</div>
