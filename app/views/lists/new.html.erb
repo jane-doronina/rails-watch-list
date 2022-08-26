@@ -2,6 +2,7 @@
 <h1 class="mt-5">Add a new list:</h1>
 <%= simple_form_for @list do |f| %>
   <%= f.input :name %>
+  <%= f.input :photo, as: :file %>
   <%= f.button :submit, class: "btn-pink" %>
 <% end %>
 
