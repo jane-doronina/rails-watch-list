@@ -4,8 +4,21 @@
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   margin-bottom: 20px;
+
+  a {
+    align-self: flex-end;
+    position: relative;
+    right: 15px;
+    bottom: 10px;
+  }
+
+  i {
+    font-size: 1rem;
+    color: rgb(254, 0, 80);
+    justify-self: flex-end;
+  }
 }
 
 .card-product img {
@@ -29,18 +42,9 @@
 }
 
 .card-product .card-product-infos {
-  padding: 10px 16px;
+  padding: 30px;
   display: flex;
   flex-direction: column;
+  height: 100%;
 
-  a {
-    align-self: flex-end;
-  }
-
-  i {
-    font-size: 0.9rem;
-    color: rgb(254, 0, 80);
-    position: relative;
-    bottom: -30px;
-  }
 }
