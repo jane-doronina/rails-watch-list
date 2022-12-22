@@ -5,8 +5,16 @@ class BookmarksController < ApplicationController
     @bookmark = Bookmark.new
   end
 
+  def autocomplete
+    list = Movie.order(:title)
+               .where("title ilike :q", q: "%#{params[:q]}%")
+
+    render json: list.map { |m| { id: m.id, title: m.title, rating: m.rating, overview: m.overview } }
+  end
+
   def create
-    @bookmark = Bookmark.new(bookmark_params)
+    @movie = Movie.find_by(title: params[:title])
+    @bookmark = Bookmark.new(movie: @movie, comment: bookmark_params[:comment])
     @bookmark.list = @list
     if @bookmark.save
       redirect_to list_path(@list)
