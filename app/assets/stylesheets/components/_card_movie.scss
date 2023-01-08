@@ -6,6 +6,56 @@
   display: flex;
   align-items: flex-start;
   margin-bottom: 20px;
+  height: 287px;
+
+  .card-product-infos {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    .comment-div {
+      height: 35%;
+      overflow-y: scroll;
+
+      .comment-text {
+        margin-top: 0;
+      }
+    }
+
+    .movie-details-div {
+      height: 65%;
+
+      .rating {
+        margin-left: 5px;
+
+        .fa-star {
+          color: $bright-yellow;
+        }
+      }
+
+      h2 {
+        font-size: 16px;
+        font-weight: bold;
+        margin: 0;
+      }
+    }
+
+
+    p {
+      font-size: 12px;
+      line-height: 1.4;
+      opacity: .7;
+      margin-bottom: 0;
+      margin-top: 8px;
+    }
+  }
+
+  img {
+    height: 100%;
+    width: 30%;
+    object-fit: cover;
+  }
 
   a {
     align-self: flex-end;
@@ -19,32 +69,5 @@
     color: rgb(254, 0, 80);
     justify-self: flex-end;
   }
-}
-
-.card-product img {
-  height: auto;
-  width: 30%;
-  object-fit: cover;
-}
-
-.card-product h2 {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0;
-}
-
-.card-product p {
-  font-size: 12px;
-  line-height: 1.4;
-  opacity: .7;
-  margin-bottom: 0;
-  margin-top: 8px;
-}
-
-.card-product .card-product-infos {
-  padding: 30px;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
 
 }

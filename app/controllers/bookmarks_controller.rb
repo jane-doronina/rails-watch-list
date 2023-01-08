@@ -32,7 +32,7 @@ class BookmarksController < ApplicationController
   private
 
   def set_list
-    @list = List.find(params[:list_id])
+    @list = List.find(params[:id])
   end
 
   def bookmark_params

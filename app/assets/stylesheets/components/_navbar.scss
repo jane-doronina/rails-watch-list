@@ -1,7 +1,10 @@
 .navbar-lewagon {
   justify-content: flex-start;
   background: white;
+
 }
+
+
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
@@ -13,9 +16,45 @@
 
 .fa-film {
   font-size: 2rem;
-  color: rgb(254, 0, 80);
+  color: $pink;
 }
 
 .nav-item {
   margin-right: 20px;
+}
+
+.nav-link {
+  font-size: 18px;
+  padding: 2px 0 !important;
+  text-transform: uppercase;
+  margin-left: 15px;
+  letter-spacing: 0.05rem;
+}
+
+.link-underline-effect {
+  position: relative;
+  text-decoration: none;
+}
+
+.link-underline-effect:hover {
+  color: $gray;
+}
+
+.link-underline-effect::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  border-radius: 0;
+  background-color: $pink;
+  bottom: 0;
+  left: 0;
+  transform-origin: right;
+  transform: scaleX(0);
+  transition: transform .3s ease-in-out;
+}
+
+.link-underline-effect:hover::before {
+  transform-origin: left;
+  transform: scaleX(1);
 }

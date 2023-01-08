@@ -1,0 +1,16 @@
+.modal-header {
+  border-bottom: none;
+}
+
+.modal-body {
+  padding: 16px 16px 30px;
+
+  .list_photo, .bookmark_comment {
+    margin-bottom: 20px !important;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+}
