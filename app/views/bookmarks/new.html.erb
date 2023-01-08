@@ -1,7 +1,7 @@
 <div class="container">
   <h1 class="mt-5">Add a movie to your list</h1>
   <%= simple_form_for [@list, @bookmark] do |f| %>
-  <%= f.input :movie, collection: Movie.to_select, input_html: {name: "title", data: {controller: "tom-select", tom_select_url_value: autocomplete_list_bookmarks_path}} %>
+  <%= f.input :movie, collection: Movie.to_select, input_html: {name: "title", data: {controller: "tom-select", tom_select_url_value: autocomplete_lists_path}} %>
   <%= f.input :comment %>
   <%= f.button :submit, value: "Add a movie", class: "btn-pink" %>
   <% end %>

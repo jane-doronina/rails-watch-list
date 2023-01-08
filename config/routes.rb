@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root to: 'lists#index'
-  resources :lists, only: [:index, :new, :create, :show] do
+  resources :lists, only: [:index, :new, :create, :show, :destroy] do
     collection do
       get :autocomplete
     end

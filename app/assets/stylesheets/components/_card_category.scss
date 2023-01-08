@@ -15,6 +15,14 @@
   margin-bottom: 20px;
   transition: 0.3s ease;
 
+  .delete-list-icon {
+    position: absolute;
+    right: 20px;
+    bottom: 15px;
+    opacity: 0.7;
+    font-size: 17px;
+  }
+
   &:hover {
     transform: scale(1.03);
   }
@@ -51,4 +59,5 @@
     transform-origin: left;
     transform: scaleX(1);
   }
+
 }

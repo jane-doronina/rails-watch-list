@@ -1,9 +1,9 @@
 class BookmarksController < ApplicationController
-  before_action :set_list, only: [:new, :create]
+  before_action :set_list, only: [:create]
 
-  def new
-    @bookmark = Bookmark.new
-  end
+  # def new
+  #   @bookmark = Bookmark.new
+  # end
 
   def autocomplete
     list = Movie.order(:title)
@@ -32,7 +32,7 @@ class BookmarksController < ApplicationController
   private
 
   def set_list
-    @list = List.find(params[:id])
+    @list = List.find(params[:list_id])
   end
 
   def bookmark_params
