@@ -5,28 +5,6 @@
   </div>
 </div>
 
-<%# MODAL %>
-
-<div class="modal fade" id="newListModal" tabindex="-1" aria-labelledby="newListModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div class="container">
-          <h2 class="mt-2 mb-3">Let's create a new <span class="pink-font">movies list</span></h2>
-          <%= simple_form_for @list do |f| %>
-            <%= f.input :name %>
-            <%= f.input :photo, as: :file %>
-            <%= f.button :submit, class: "btn-pink btn-center" %>
-          <% end %>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
 <%# LISTS %>
 
 <div class="container mb-5">

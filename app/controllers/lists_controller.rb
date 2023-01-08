@@ -5,7 +5,7 @@ class ListsController < ApplicationController
 
   def index
     @lists = List.all
-    @list = List.new
+    @new_list = List.new
   end
 
   def autocomplete
@@ -31,6 +31,7 @@ class ListsController < ApplicationController
 
   def show
     @list = List.find(params[:id])
+    @new_list = List.new
     @bookmark = Bookmark.new
   end
 

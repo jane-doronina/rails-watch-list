@@ -23,6 +23,10 @@
       }
     }
 
+    .comment-div::-webkit-scrollbar {
+      display: none;
+    }
+
     .movie-details-div {
       height: 65%;
 
