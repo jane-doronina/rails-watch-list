@@ -1,0 +1,6 @@
+<h2 class="mt-2 mb-3">Let's create a new <span class="pink-font">movies list</span></h2>
+<%= simple_form_for list do |f| %>
+  <%= f.input :name %>
+  <%= f.input :photo, as: :file %>
+  <%= f.button :submit, class: "btn-pink btn-center", data: { action: "click->bs-modal#submitEnd"} %>
+<% end %>

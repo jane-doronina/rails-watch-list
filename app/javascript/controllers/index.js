@@ -2,7 +2,13 @@
 // Run that command whenever you add a new controller or create them with
 // ./bin/rails generate stimulus controllerName
 
-import { application } from "./application";
+import { application } from "./application"
 
-import TomSelectController from "./tom_select_controller.js";
-application.register("tom-select", TomSelectController);
+import BsModalController from "./bs_modal_controller"
+application.register("bs-modal", BsModalController)
+
+import ModalController from "./modal_controller"
+application.register("modal", ModalController)
+
+import TomSelectController from "./tom_select_controller"
+application.register("tom-select", TomSelectController)

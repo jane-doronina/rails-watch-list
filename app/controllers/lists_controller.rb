@@ -5,7 +5,7 @@ class ListsController < ApplicationController
 
   def index
     @lists = List.all
-    @new_list = List.new
+    @list = List.new
   end
 
   def autocomplete
@@ -15,6 +15,10 @@ class ListsController < ApplicationController
     render json: list.map { |m| { id: m.id, title: m.title, rating: m.rating, overview: m.overview } }
   end
 
+  def new
+    @list = List.new
+  end
+
   def create
     @list = List.new(list_params)
     if params[:list][:photo].nil?
@@ -22,10 +26,17 @@ class ListsController < ApplicationController
       @list.photo.attach(io: list_photo, filename: 'list.jpg', content_type: 'image/jpg')
     end
 
-    if @list.save
-      redirect_to list_path(@list)
-    else
-      render :new, status: :unprocessable_entity
+    respond_to do |format|
+      if @list.save
+        # format.turbo_stream { render turbo_stream: turbo_stream.append("lists_list", partial: "lists/list", locals: { list: @list }) }
+        format.turbo_stream { redirect_to list_path(@list) }
+        format.html { redirect_to list_path(@list), notice: "List successfully created." }
+        format.json { render :show, status: :created, location: @list }
+      else
+        format.turbo_stream { render turbo_stream: turbo_stream.replace("remote_modal", partial: "lists/form_modal", locals: {list: @list }) }
+        format.html { render :new, status: :unprocessable_entity, notice: "Please check the form for more details." }
+        format.json { render json: @list.errors, status: :unprocessable_entity }
+      end
     end
   end
 

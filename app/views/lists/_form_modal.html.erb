@@ -1,0 +1,16 @@
+<%= turbo_frame_tag :remote_modal, target: :_top do %>
+  <div class="modal fade" id="newListModal" tabindex="-1" aria-labelledby="newListModalLabel" aria-hidden="true" data-controller="bs-modal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="container">
+            <%= render "list_form", list: list %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
