@@ -1,55 +1,15 @@
 <div class="card-list mb-5" style='background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= rails_blob_url(@list.photo) %>)'>
   <h1 class="mb-4"><%= @list.name %></h1>
-  <button type="button" class="btn-pink-banner" data-bs-toggle="modal" data-bs-target="#addMovieModal">Add a movie</button>
+  <%= link_to "Add a movie", new_list_bookmark_path(@list), class: "btn-pink-banner", data: { controller: "modal", action: "click->modal#showModal"} %>
 
-</div>
-
-<%# MODAL %>
-
-<div class="modal fade" id="addMovieModal" tabindex="-1" aria-labelledby="addMovieLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div class="container">
-          <h2 class="mt-2 mb-3">Add a movie now to <span class="pink-font">watch later</span></h2>
-          <%= simple_form_for [@list, @bookmark] do |f| %>
-          <%= f.input :movie, collection: Movie.to_select, input_html: {name: "title", data: {controller: "tom-select", tom_select_url_value: autocomplete_lists_path}} %>
-          <%= f.input :comment %>
-          <%= f.button :submit, value: "Add a movie", class: "btn-pink btn-center" %>
-          <% end %>
-        </div>
-      </div>
-    </div>
-  </div>
 </div>
 
 <%# MOVIES LIST %>
 
 <div class="container mt-3 mb-5">
-  <div class="row">
+  <div class="movies-list" id="movies-list">
     <% @list.bookmarks.each do |bookmark| %>
-      <div class="col-sm-12 col-md-6 col-lg-6">
-
-        <div class="card-product">
-          <%= image_tag bookmark.movie.poster_url, alt: "#{bookmark.movie.title}" %>
-          <div class="card-product-infos">
-            <div class="movie-details-div">
-              <h2><%= bookmark.movie.title %> | <span class="rating"><i class="fa-solid fa-star"></i> <%= bookmark.movie.rating %> </span></h2>
-              <p><%= bookmark.movie.overview %></p>
-            </div>
-            <% if bookmark.comment != "" %>
-              <div class="comment-div">
-                <h6 class="mt-3">Comment</h6>
-                <p class="comment-text"><%= bookmark.comment %></p>
-              </div>
-            <% end %>
-          </div>
-          <%= link_to '<i class="fa-solid fa-trash-can"></i>'.html_safe, bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-        </div>
-      </div>
+        <%= render "lists/movie_card", bookmark: bookmark  %>
     <% end %>
   </div>
   <div class="d-flex justify-content-between">
