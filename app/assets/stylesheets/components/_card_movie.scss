@@ -96,8 +96,13 @@
     }
 
     .movie-details-div {
-      p {
+      .short-desc {
         max-height: 110px;
+        overflow-y: scroll;
+      }
+
+      .long-desc {
+        max-height: 180px;
         overflow-y: scroll;
       }
     }

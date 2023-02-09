@@ -3,7 +3,7 @@
   <div class="card-product-infos">
     <div class="movie-details-div">
       <h2><%= bookmark.movie.title %> | <span class="rating"><i class="fa-solid fa-star"></i> <%= bookmark.movie.rating %> </span></h2>
-      <p><%= bookmark.movie.overview %></p>
+      <p class="<%= bookmark.comment == "" ? "long-desc" : "short-desc" %>"><%= bookmark.movie.overview %></p>
     </div>
     <% if bookmark.comment != "" %>
       <div class="comment-div">
