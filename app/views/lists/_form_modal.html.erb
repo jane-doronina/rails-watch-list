@@ -7,7 +7,11 @@
         </div>
         <div class="modal-body">
           <div class="container">
+          <% if params[:controller] == "lists" && (params[:action] == "new" || params[:action] == "create")  %>
             <%= render "list_form", list: list %>
+          <% elsif params[:controller] == "bookmarks" && (params[:action] == "new" || params[:action] == "create") %>
+            <%= render "bookmark_form", list: list, bookmark: bookmark %>
+          <% end %>
           </div>
         </div>
       </div>

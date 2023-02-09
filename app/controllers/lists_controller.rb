@@ -28,8 +28,7 @@ class ListsController < ApplicationController
 
     respond_to do |format|
       if @list.save
-        # format.turbo_stream { render turbo_stream: turbo_stream.append("lists_list", partial: "lists/list", locals: { list: @list }) }
-        format.turbo_stream { redirect_to list_path(@list) }
+        format.turbo_stream { render turbo_stream: turbo_stream.append("lists-list", partial: "list", locals: { list: @list }) }
         format.html { redirect_to list_path(@list), notice: "List successfully created." }
         format.json { render :show, status: :created, location: @list }
       else

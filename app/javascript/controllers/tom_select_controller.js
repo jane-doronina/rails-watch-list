@@ -32,13 +32,11 @@ export default class extends Controller {
     if(response.ok) {
       callback(await response.json)
     } else {
-      console.log(response)
       callback()
     }
   }
 
   render_option(data, escape) {
-    console.log(data);
     if(data.sub)
       return `
       <div>

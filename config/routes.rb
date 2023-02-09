@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     collection do
       get :autocomplete
     end
-    resources :bookmarks, only: [:create ]
+    resources :bookmarks, only: [:new, :create ]
   end
   resources :bookmarks, only: [ :destroy ]
 end

@@ -1,9 +1,9 @@
 class BookmarksController < ApplicationController
-  before_action :set_list, only: [:create]
+  before_action :set_list, only: [ :new, :create]
 
-  # def new
-  #   @bookmark = Bookmark.new
-  # end
+  def new
+    @bookmark = Bookmark.new
+  end
 
   def autocomplete
     list = Movie.order(:title)
@@ -16,10 +16,17 @@ class BookmarksController < ApplicationController
     @movie = Movie.find_by(title: params[:title])
     @bookmark = Bookmark.new(movie: @movie, comment: bookmark_params[:comment])
     @bookmark.list = @list
-    if @bookmark.save
-      redirect_to list_path(@list)
-    else
-      render :new, status: :unprocessable_entity
+
+    respond_to do |format|
+      if @bookmark.save
+        format.turbo_stream { render turbo_stream: turbo_stream.append("movies-list", partial: "lists/movie_card", locals: { list: @list, bookmark: @bookmark }) }
+        format.html { redirect_to list_path(@list), notice: "Movie successfully added." }
+        format.json { render :show, status: :created, location: @bookmark }
+      else
+        format.turbo_stream { render turbo_stream: turbo_stream.replace("remote_modal", partial: "lists/form_modal", locals: {list: @list, bookmark: @bookmark }) }
+        format.html { render :new, status: :unprocessable_entity, notice: "Please check the form for more details." }
+        format.json { render json: @bookmark.errors, status: :unprocessable_entity }
+      end
     end
   end
 

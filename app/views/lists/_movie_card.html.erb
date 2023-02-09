@@ -1,0 +1,16 @@
+<div class="card-product">
+  <%= image_tag bookmark.movie.poster_url, alt: "#{bookmark.movie.title}" %>
+  <div class="card-product-infos">
+    <div class="movie-details-div">
+      <h2><%= bookmark.movie.title %> | <span class="rating"><i class="fa-solid fa-star"></i> <%= bookmark.movie.rating %> </span></h2>
+      <p><%= bookmark.movie.overview %></p>
+    </div>
+    <% if bookmark.comment != "" %>
+      <div class="comment-div">
+        <h6 class="mt-3">Comment</h6>
+        <p class="comment-text"><%= bookmark.comment %></p>
+      </div>
+    <% end %>
+  </div>
+  <%= link_to '<i class="fa-solid fa-trash-can"></i>'.html_safe, bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+</div>

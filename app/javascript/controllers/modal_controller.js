@@ -1,7 +1,6 @@
 import { Controller } from "@hotwired/stimulus"
 import { Turbo } from "@hotwired/turbo-rails";
 
-// Connects to data-controller="trip-modal"
 export default class extends Controller {
   connect() {
     console.log("modal controller active")
