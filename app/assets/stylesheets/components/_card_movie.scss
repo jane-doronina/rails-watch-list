@@ -81,3 +81,27 @@
   }
 
 }
+
+
+@media only screen and (max-width: 600px) {
+  .movies-list {
+    display: block;
+  }
+
+  .card-product {
+    img {
+      height: 100%;
+      width: 40%;
+      object-fit: cover;
+    }
+
+    .movie-details-div {
+      p {
+        max-height: 110px;
+        overflow-y: scroll;
+      }
+    }
+
+  }
+
+}

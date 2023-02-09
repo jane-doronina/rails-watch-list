@@ -20,3 +20,9 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   margin-bottom: 20px;
 }
+
+@media only screen and (max-width: 600px) {
+  .lists-list {
+    display: block;
+  }
+}
