@@ -41,9 +41,9 @@ Users should be able to:
 - Bootstrap
 
 
-### What I learned + future focus
+### Learnings + future focus
 
-The main purpose of this project was to practice basic CRUD actions using Ruby on Rails framework. One of the main challenges was to render forms for creating lists and adding movies in bootstrap modals using Turbo Frames and Stimulus, which allowed to perform server side validation and re-render the forms with error details to the user.
+The main purpose of this project was to practice basic CRUD actions using Ruby on Rails framework. One of the main challenges was to render forms for creating lists and adding movies in bootstrap modals using Turbo Frames and Stimulus to perform server side validation and re-render the forms with error details to the user.
 
 Possible future steps:
 - For demonstration purposes there is no user authentication, so adding authentication with Devise gem could be a logical next step.
